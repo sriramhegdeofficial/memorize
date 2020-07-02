@@ -115,17 +115,12 @@
 		80336DEF248927EE00658061 /* memorize */ = {
 			isa = PBXGroup;
 			children = (
+				804F7DCE24A251F600825B7A /* ViewModels */,
+				804F7DCD24A251DB00825B7A /* Extensions */,
+				804F7DCC24A2517600825B7A /* Views */,
+				804F7DCB24A2515400825B7A /* Models */,
 				80336DF0248927EE00658061 /* AppDelegate.swift */,
 				80336DF2248927EE00658061 /* SceneDelegate.swift */,
-				80336DF4248927EE00658061 /* EmojiMemoryGameView.swift */,
-				80FB8E48248E301C005AA8FD /* Cardify.swift */,
-				80FB8E46248E2656005AA8FD /* Pie.swift */,
-				80524AB1248CDACB007FFD2D /* Grid.swift */,
-				80524AB5248CED6C007FFD2D /* Array+Identifiable.swift */,
-				80524AB3248CE27B007FFD2D /* GridLayout.swift */,
-				80336E22248945AB00658061 /* MemorizeGame.swift */,
-				80336E2424894FA400658061 /* EmojiMemoryGame.swift */,
-				80524AB7248D133D007FFD2D /* Themes.swift */,
 				80336DF6248927F600658061 /* Assets.xcassets */,
 				80336DFB248927F700658061 /* LaunchScreen.storyboard */,
 				80336DFE248927F700658061 /* Info.plist */,
@@ -158,6 +153,43 @@
 				80336E14248927F700658061 /* Info.plist */,
 			);
 			path = memorizeUITests;
+			sourceTree = "<group>";
+		};
+		804F7DCB24A2515400825B7A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				80336E22248945AB00658061 /* MemorizeGame.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		804F7DCC24A2517600825B7A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				80524AB1248CDACB007FFD2D /* Grid.swift */,
+				80524AB3248CE27B007FFD2D /* GridLayout.swift */,
+				80524AB7248D133D007FFD2D /* Themes.swift */,
+				80FB8E46248E2656005AA8FD /* Pie.swift */,
+				80FB8E48248E301C005AA8FD /* Cardify.swift */,
+				80336DF4248927EE00658061 /* EmojiMemoryGameView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		804F7DCD24A251DB00825B7A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				80524AB5248CED6C007FFD2D /* Array+Identifiable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		804F7DCE24A251F600825B7A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				80336E2424894FA400658061 /* EmojiMemoryGame.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

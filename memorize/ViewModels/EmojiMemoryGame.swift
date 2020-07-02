@@ -36,6 +36,13 @@ class EmojiMemoryGame : ObservableObject {
         model = EmojiMemoryGame.createMemorizeGame()
     }
     
+    func resetGame() {
+        if model.isGameOver() == true {
+            
+            self.newGame()
+        }
+    }
+    
     func getTheme() -> Themes.Theme {
         return EmojiMemoryGame.theme
     }

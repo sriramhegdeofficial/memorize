@@ -4,13 +4,18 @@ import SwiftUI
 
 struct EmojiMemoryGameView : View {
     @ObservedObject var viewModel : EmojiMemoryGame
+    
+    
     var body : some View {
         VStack {
             HStack {
                 Spacer()
                 Button(action: {
                     // What to perform
-                    self.viewModel.newGame()
+                    withAnimation(.easeInOut(duration: 0.8)) {
+                        self.viewModel.newGame()
+                    }
+                    
                 }) {
                     // How the button looks like
                     Text("New Game")
@@ -23,7 +28,13 @@ struct EmojiMemoryGameView : View {
             
             Grid(viewModel.cards) {   card in
                       CardView(card: card, theme: self.viewModel.getTheme()).onTapGesture {
-                                   self.viewModel.choose(card: card)
+                        withAnimation(.linear(duration: 0.9)) {
+                            self.viewModel.choose(card: card)
+                            
+                        }
+                             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                             self.viewModel.resetGame()
+                                         }
                                }
                   .padding(5)
                            }
@@ -51,10 +62,15 @@ struct CardView : View {
                 ZStack {
                         Pie(startAngle: Angle.degrees(0-90), endAngle: Angle.degrees(20), clockwise: true ).padding(5).opacity(0.4)
                         Text(self.card.content)
+                            .rotationEffect(Angle.degrees(self.card.isMatched ? 360 : 0))
+                            .animation(self.card.isMatched ? Animation.linear(duration: 0.6).repeatForever(autoreverses: false) : .default)
+                    
                 }
-                .cardify(theme: self.theme, isFaceUp: self.card.isFaceUp)
+                .cardify(isFaceUp: self.card.isFaceUp, theme: self.theme)
                 .font(Font.system(size: min(geometry.size.width, geometry.size.height) * self.multiplier))
                 .foregroundColor(self.theme.themeColor)
+                .transition(AnyTransition.scale)
+                
             }
         }
         
@@ -72,10 +88,10 @@ struct CardView : View {
 
 
 
-struct ContentView_Previews: PreviewProvider {
+
+
+struct EmojiMemoryGameView_Previews: PreviewProvider {
     static var previews: some View {
-        let game = EmojiMemoryGame()
-        game.choose(card: game.cards[0])
-       return EmojiMemoryGameView(viewModel: game)
+        EmojiMemoryGameView(viewModel: EmojiMemoryGame())
     }
 }

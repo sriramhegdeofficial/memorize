@@ -40,6 +40,17 @@ struct MemorizeGame<CardContent> where CardContent : Equatable {
         }
     }
     
+    func isGameOver() -> Bool {
+        
+        for index in cards.indices {
+            if cards[index].isMatched == false {
+                return false
+            }
+            
+        }
+        return true
+    }
+    
     mutating func choose(card: Card) {
         
         
